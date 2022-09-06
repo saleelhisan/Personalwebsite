@@ -14,7 +14,7 @@ function validateName() {
         return false;
     }
 
-    if (!name.match(/^[A-Za-z]*\s{1}[A-Za-z]*$/)){
+    if (!name.match(/^[A-Za-z ]*$/)){
         nameError.innerHTML='Write a FullName';
         nameError.style.color='red'
         return false;
@@ -58,4 +58,36 @@ function validateMessage() {
     messageError.style.color='green'
     return true;    
     
+}
+
+function validateSubject(){
+	var phone = document.getElementById("contact-subject").value.trim();
+	if (phone.length == 0) {
+		subjectError.innerHTML = 'phone number is Required';
+		subjectError.style.color = 'red'
+		document.getElementById("contact-subject").style.borderColor = "red"
+		document.getElementById("contact-subject").style.color = "red"
+		return false;
+	}
+	if (phone.length != 10) {
+		subjectError.innerHTML = "Enter Valid phonenumber"
+		subjectError.style.color = "red"
+		document.getElementById("contact-subject").style.borderColor = "red"
+		document.getElementById("contact-subject").style.color = "red"
+		return false
+
+	}
+	if (!phone.match(/^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/)) {
+		subjectError.innerHTML = "Phonenumber must be digits"
+		subjectError.style.color("red")
+		document.getElementById("contact-subject").style.borderColor = "red"
+		document.getElementById("contact-subject").style.color = "red"
+
+
+		return false;
+    }
+    subjectError.innerHTML = ""
+	document.getElementById("contact-subject").style.borderColor = "green"
+	document.getElementById("contact-subject").style.color = "green"
+	return true;
 }
