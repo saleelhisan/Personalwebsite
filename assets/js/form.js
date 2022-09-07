@@ -19,6 +19,12 @@ function validateName() {
         nameError.style.color='red'
         return false;
     }
+
+    if (name.length<3){
+        nameError.innerHTML='enter minimum 3 charactors';
+        nameError.style.color='red'
+        return false;
+    }
     
     nameError.innerHTML='Name is valid';
     nameError.style.color='green'
@@ -48,11 +54,10 @@ function validateMessage() {
     var Required=15;
     var left=Required - message.length;
     
-    if(left>0){
-        messageError.innerHTML =left+ 'more character Required';
+    if(message.length==0 || message.length<10){
+        messageError.innerHTML ='more character Required';
         messageError.style.color='red'
         return false;
-    
     }
     messageError.innerHTML='Message is valid';
     messageError.style.color='green'
